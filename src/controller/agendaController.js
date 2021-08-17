@@ -1,18 +1,24 @@
 const Agenda = require('../model/Agenda');
+const validacao = require('../comum/validation');
 
 module.exports = {
 
     async show(req, res) {
         try {
-            const data = req.param.data;
-            const hora = req.param.hora;
-            const sala = req.param.sala;
+            const { data, hora, sala } = req.query;
 
-            let agenda = await Agenda.where({ ddata: data, dhora: hora, nsala: sala });
-            if (agenda)
-                return res.status(200).json(agenda);
-            else
-                return res.status(404).send({ error : 'Not Found'});
+            if (validacao.agendamentoPermitido(data, hora)) {
+                const agenda = await Agenda.findOne({ ddata: data, dhora: hora, nsala: sala });
+
+                if (agenda)
+                    return res.status(200).json(agenda);
+                else
+                    return res.status(404).send({ error : 'Not Found'});
+            
+            } else {
+                return res.status(400).send({ error : 'invalid data' })
+            }
+
         } catch (e) {
             res.status(500).send(e.message);
         }
@@ -20,12 +26,13 @@ module.exports = {
 
     async index(req, res) {
         try {
-            let agenda = await Agenda.find(req.param.id);
+            let agenda = await Agenda.find();
 
             if (agenda)
                 return res.status(201).json(agenda);
             else
                 return res.status(404).send({ error : 'Not Found'});
+
         } catch (e) {
             res.status(500).send(e.message);
         }
@@ -33,17 +40,21 @@ module.exports = {
 
     async store(req, res) {
         try {
-            const { ddata, dhora, nsala } = req.body;
-            const data = new Date();
+            const { data, hora, sala } = req.query;
+            
+            if (validacao.agendamentoPermitido(data, hora)) {
+                let agenda = await Agenda.findOne({ data, hora, sala });
 
-            let agenda = await Agenda.findOne({ ddata, dhora, nsala });
+                if ((!agenda)) {
+                    retorno = await Agenda.create({ data, hora, sala });
+                    return res.status(201).json(retorno);
+                } else {
+                    return res.status(400).send({ error : 'Not authorized' });
+                }
 
-            if (!agenda) {
-                retorno = await Agenda.create({ ddata, dhora, nsala });
-                return res.status(201).json(retorno);
-            } else
-                return res.status(400).send({ error : 'Not authorized'});
-
+            } else {
+                return res.status(400).send({ error : 'invalid data' })
+            }
         } catch (e) {
             res.status(500).send(e.message);
         }
@@ -51,14 +62,19 @@ module.exports = {
     
     async update(req, res) {
         try {
-            const { ddata, dhora, nsala } = req.body;
-            let agenda = await Agenda.findOne({ ddata, dhora, nsala });
+            const { ddata, dhora, nsala } = req.query;
+            if (validacao.agendamentoPermitido(data, hora)) {
+                let agenda = await Agenda.findOne({ ddata, dhora, nsala });
 
-            if (agenda) {
-                const updateAgenda = await agenda.update(_id, { ddata, dhora, nsala });
-                return res.status(200).json(retorno);
-            } else
-                return res.status(400).send({ error : 'Not authorized'});
+                if (agenda) {
+                    const updateAgenda = await agenda.update(_id, { ddata, dhora, nsala });
+                    return res.status(200).json(retorno);
+                } else
+                    return res.status(400).send({ error : 'Not authorized'});
+
+            } else {
+                return res.status(400).send({ error : 'invalid data' })
+            }
         } catch (e) {
             res.status(500).send(e.message);
         }
@@ -66,11 +82,15 @@ module.exports = {
 
     async destroy(req, res) {
         try {
-            const { ddata, dhora, nsala } = req.body;
+            const { data, hora, sala } = req.query;
+            if (validacao.agendamentoPermitido(data, hora)) {
+                const agenda = await Agenda.findOneAndDelete({  ddata: data, dhora: hora, nsala: sala });
 
-            const agenda = await Agenda.findOneAndDelete({ ddata, dhora, nsala });
-
-            await agenda.destroy();
+                if (agenda)
+                    await agenda.destroy();
+            } else {
+                return res.status(400).send({ error : 'invalid data' })
+            }
         } catch (e) {
             res.status(500).send(e.message);
         }
