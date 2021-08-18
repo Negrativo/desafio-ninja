@@ -5,9 +5,12 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.13.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

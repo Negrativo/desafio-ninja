@@ -7,7 +7,7 @@ module.exports = {
         try {
             const { data, hora, sala } = req.query;
 
-            if (validacao.agendamentoPermitido(data, hora)) {
+            if (validacao.agendamentoPermitido(data, hora, sala)) {
                 const agenda = await Agenda.findOne({ ddata: data, dhora: hora, nsala: sala });
 
                 if (agenda)
@@ -42,11 +42,12 @@ module.exports = {
         try {
             const { data, hora, sala } = req.query;
             
-            if (validacao.agendamentoPermitido(data, hora)) {
+            if (validacao.agendamentoPermitido(data, hora, sala)) {
+                console.log(data, hora, sala);
                 let agenda = await Agenda.findOne({ data, hora, sala });
 
                 if ((!agenda)) {
-                    retorno = await Agenda.create({ data, hora, sala });
+                    retorno = await Agenda.create({ ddata: data, dhora: hora, nsala: sala });
                     return res.status(201).json(retorno);
                 } else {
                     return res.status(400).send({ error : 'Not authorized' });

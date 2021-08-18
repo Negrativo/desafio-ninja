@@ -14,7 +14,6 @@ const AgendaSchema = new mongoose.Schema({
     },
     dhora : {
         type: String,
-        max:  5,
         validate: {
             validator: function(v) {
                 return /\d{2}:\d{2}/.test(v);
@@ -25,7 +24,8 @@ const AgendaSchema = new mongoose.Schema({
     },
     nsala : {
         type: Number,
-        max:  2,
+        max:  4,
+        min: 1,
         required: [true, 'Local de agendamento requerido']
     }
 });
