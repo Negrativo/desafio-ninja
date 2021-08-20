@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 
-const AgendaSchema = new mongoose.Schema({
+const agendaSchema = new mongoose.Schema({
     ddata : {
         type: String,
         max:  10,
         validate: {
-            validator: function(v) {
-                return /\d{2}-\d{2}-\d{4}/.test(v);
-            },
+            validator: v => /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/.test(v),
             message: props => `O modelo ${props.value} não se adequa ao DD/MM/AAAA`
         },
         required: [true, 'Data de agendamento requerida']
@@ -15,9 +13,7 @@ const AgendaSchema = new mongoose.Schema({
     dhora : {
         type: String,
         validate: {
-            validator: function(v) {
-                return /\d{2}:\d{2}/.test(v);
-            },
+            validator: v => /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v),
             message: props => `O modelo ${props.value} não se adequa ao HH:MM`
         },
         required: [true, 'Horario de agendamento requerido']
@@ -30,4 +26,4 @@ const AgendaSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Agenda',AgendaSchema);
+module.exports = mongoose.model('agenda',agendaSchema);

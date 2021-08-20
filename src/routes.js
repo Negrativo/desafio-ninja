@@ -1,12 +1,13 @@
+const agendaController = require('../src/controller/AgendaController');
+const validacao = require('../src/comum/validation');
 const express = require("express");
 
 const routes = express.Router();
-const agendaController = require('../src/controller/AgendaController');
 
-routes.post('/agenda/reserva', agendaController.store);
+routes.post('/agenda/reserva', validacao.agendamentoPermitido, agendaController.store);
 routes.get('/agenda/listagem', agendaController.index);
 routes.get('/agenda/consulta', agendaController.show);
-routes.put('/agenda/alterar', agendaController.update);
-routes.post('/agenda/deletar', agendaController.destroy);
+routes.put('/agenda/alterar', validacao.agendamentoPermitido, agendaController.update);
+routes.post('/agenda/deletar', validacao.agendamentoPermitido, agendaController.destroy);
 
 module.exports = routes;

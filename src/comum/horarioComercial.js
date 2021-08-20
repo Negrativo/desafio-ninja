@@ -1,17 +1,20 @@
+const moment = require('moment');
+
 module.exports = {
 
-	HorarioComercial(dataCompleta){
+	horarioComercial(data, hora){
+		let inicioDoDia = 9;
+		let finalDoDia = 18;
+		let sabado = 0;
+		let domingo = 6;
 
-		var InicioDoDia = 9
-		var FinalDoDia = 18
-		var Sabado = 0;
-		var Domingo = 6;
-		var dia = new Date(dataCompleta)
+		let dataCompleta = moment(moment(`${data} ${hora}`, 'DD/MM/YYYY hh:mm').format());
+		let horarioAgendamento = dataCompleta.hours();
+		let diaSemana = dataCompleta.day();
 		
-		var ehCedo = ( dia.getHours() <= InicioDoDia )
-		var ehTarde = ( dia.getHours() >= FinalDoDia )
-		var diaSemana = dia.getDay()
-		var FinalDeSemana = ( diaSemana === Sabado ) || diaSemana === Domingo
-		return ehCedo || ehTarde || FinalDeSemana
+		let ehHorarioComercial = ( inicioDoDia <= horarioAgendamento ) && ( horarioAgendamento <= finalDoDia );
+		let finalDeSemana = ( diaSemana === sabado ) || diaSemana === domingo;
+		
+		return (ehHorarioComercial && !finalDeSemana);
 	}
 }
