@@ -15,7 +15,7 @@ let validador = (data, hora) => {
 module.exports = {
         
     agendamentoPermitido(req, res, next) {
-        const { data, hora, sala } = req.query;
+        const { data, hora, sala } = req.body;
         try {
             if  (validador(data, hora) && periodoAgendamento.horarioComercial(data, hora) && salasAgendamentos.salaDisponivel(sala))
                 next();
