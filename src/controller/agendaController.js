@@ -53,7 +53,6 @@ module.exports = {
     async update(req, res) {
         try {
             const { data, hora, sala, _id } = req.body;
-            //const { _id } = req.param._id;
             
             let agenda = await Agenda.findById(_id, { data, hora, sala });
 

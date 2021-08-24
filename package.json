@@ -4,15 +4,23 @@
   "description": "Backend agendamento de salas",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "moment": "^2.29.1",
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "supertest": "^6.1.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "tap-simple": "^0.3.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.3.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js --ignore test"
   },
   "repository": {
     "type": "git",
