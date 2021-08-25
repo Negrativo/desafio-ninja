@@ -3,4 +3,4 @@ services:
   app:
     build: .
     ports: 
-      - '19002:19002'
+      - '19004:19002'

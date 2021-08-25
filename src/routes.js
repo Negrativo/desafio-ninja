@@ -1,4 +1,4 @@
-const agendaController = require('./controller/AgendaController');
+const agendaController = require('./controller/agendaController');
 const validacao = require('./comum/validation');
 const express = require("express");
 
