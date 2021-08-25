@@ -1,0 +1,328 @@
+{
+	"id": "324ab7c9-d99f-49a7-8317-9d6128fadc7c",
+	"name": "Agenda",
+	"timestamp": "2021-08-23T18:12:27.871Z",
+	"collection_id": "17110595-84676323-220b-4a5b-95db-a36887cd75e0",
+	"folder_id": 0,
+	"environment_id": "02183be4-ebfb-48cd-9c68-b5361ebe13e1",
+	"totalPass": 10,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f0cc6a8e-b1a5-4ace-8715-d2563b49fec3",
+			"name": "Store",
+			"url": "http://192.168.15.22:19003/agenda/reserva",
+			"time": 324,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code 201, recorded": true
+			},
+			"testPassFailCounts": {
+				"Status code 201, recorded": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				324
+			],
+			"allTests": [
+				{
+					"Status code 201, recorded": true
+				}
+			]
+		},
+		{
+			"id": "610dfaa0-610f-4956-adc7-0f6d8dae6a9a",
+			"name": "Store invalid data",
+			"url": "http://192.168.15.22:19003/agenda/reserva",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code 400, invalid data": true
+			},
+			"testPassFailCounts": {
+				"Status code 400, invalid data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code 400, invalid data": true
+				}
+			]
+		},
+		{
+			"id": "7e5145c3-ee80-4f75-8095-2ea5394984f8",
+			"name": "Store not authorized",
+			"url": "http://192.168.15.22:19003/agenda/reserva",
+			"time": 159,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code 400, Not authorized": true
+			},
+			"testPassFailCounts": {
+				"Status code 400, Not authorized": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				159
+			],
+			"allTests": [
+				{
+					"Status code 400, Not authorized": true
+				}
+			]
+		},
+		{
+			"id": "9f344e46-a812-4a8c-8eea-4d97915195e8",
+			"name": "Show",
+			"url": "http://192.168.15.22:19003/agenda/consulta",
+			"time": 161,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200": true
+			},
+			"testPassFailCounts": {
+				"Status code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				161
+			],
+			"allTests": [
+				{
+					"Status code 200": true
+				}
+			]
+		},
+		{
+			"id": "d123c71f-c426-4c9e-bf11-3b5106304c98",
+			"name": "Show not found",
+			"url": "http://192.168.15.22:19003/agenda/consulta",
+			"time": 164,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code 404, not found": true
+			},
+			"testPassFailCounts": {
+				"Status code 404, not found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				164
+			],
+			"allTests": [
+				{
+					"Status code 404, not found": true
+				}
+			]
+		},
+		{
+			"id": "e4aeb224-2b71-4307-bca0-392e0cd06970",
+			"name": "Update",
+			"url": "http://192.168.15.22:19003/agenda/alterar",
+			"time": 333,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200, updation successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code 200, updation successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				333
+			],
+			"allTests": [
+				{
+					"Status code 200, updation successfully": true
+				}
+			]
+		},
+		{
+			"id": "980204ab-e220-4cae-8bee-bbafc3d50730",
+			"name": "Update not found",
+			"url": "http://192.168.15.22:19003/agenda/alterar",
+			"time": 189,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code 404, not found": true
+			},
+			"testPassFailCounts": {
+				"Status code 404, not found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				189
+			],
+			"allTests": [
+				{
+					"Status code 404, not found": true
+				}
+			]
+		},
+		{
+			"id": "ca3f521f-daf9-41cb-acbd-5d73ffb18ef4",
+			"name": "Index",
+			"url": "http://192.168.15.22:19003/agenda/listagem",
+			"time": 169,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200": true
+			},
+			"testPassFailCounts": {
+				"Status code 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				169
+			],
+			"allTests": [
+				{
+					"Status code 200": true
+				}
+			]
+		},
+		{
+			"id": "3206585e-9f73-48f8-8d41-14a00947f51f",
+			"name": "Destroy",
+			"url": "http://192.168.15.22:19003/agenda/deletar",
+			"time": 355,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code 200, deleted successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code 200, deleted successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				355
+			],
+			"allTests": [
+				{
+					"Status code 200, deleted successfully": true
+				}
+			]
+		},
+		{
+			"id": "8c4775ed-2342-492d-87f9-86633032983f",
+			"name": "Destroy not found",
+			"url": "http://192.168.15.22:19003/agenda/deletar",
+			"time": 160,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code 404, not found": true
+			},
+			"testPassFailCounts": {
+				"Status code 404, not found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				160
+			],
+			"allTests": [
+				{
+					"Status code 404, not found": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2018,
+	"collection": {
+		"requests": [
+			{
+				"id": "f0cc6a8e-b1a5-4ace-8715-d2563b49fec3",
+				"method": "POST"
+			},
+			{
+				"id": "610dfaa0-610f-4956-adc7-0f6d8dae6a9a",
+				"method": "POST"
+			},
+			{
+				"id": "7e5145c3-ee80-4f75-8095-2ea5394984f8",
+				"method": "POST"
+			},
+			{
+				"id": "9f344e46-a812-4a8c-8eea-4d97915195e8",
+				"method": "GET"
+			},
+			{
+				"id": "d123c71f-c426-4c9e-bf11-3b5106304c98",
+				"method": "GET"
+			},
+			{
+				"id": "e4aeb224-2b71-4307-bca0-392e0cd06970",
+				"method": "PUT"
+			},
+			{
+				"id": "980204ab-e220-4cae-8bee-bbafc3d50730",
+				"method": "PUT"
+			},
+			{
+				"id": "ca3f521f-daf9-41cb-acbd-5d73ffb18ef4",
+				"method": "GET"
+			},
+			{
+				"id": "3206585e-9f73-48f8-8d41-14a00947f51f",
+				"method": "POST"
+			},
+			{
+				"id": "8c4775ed-2342-492d-87f9-86633032983f",
+				"method": "POST"
+			}
+		]
+	}
+}

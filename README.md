@@ -17,9 +17,14 @@ Sua tarefa será de criar uma API REST que crie, edite, mostre e delete o agenda
 # Solução proposta
 
 API REST de agendamento em node.js
-Contem a seguintes rotinas:
-Inclusão de agendamento, Consulta de agendamento único, listagem de agendamentos cadastrados, alteração de agendamento existente e exclusão de agendamento.
+
+Para configurar o ambiente e iniciar o projeto, pode-se utilizar o comando:
+`docker-compose up --build`
+
+A aplicação contem inclusão de agendamento, consulta de agendamento único, listagem de agendamentos cadastrados, alteração de agendamento existente e exclusão de agendamento.
 Foram criadas validações sobre data, para que somente seja permitido o agendamento em dias comerciais(Seg - Sex), como também foram inclusos validações para horários, sendo permitido somente agendamento em horário comercia(08:00 - 18:00).
 Há validações de dados utilizados, para que somente seja possível utilizar as rotinas com dados consistentes:
 Data -> DD/MM/AAA     e    Horário -> HH:MM
 Há também validação sobre utilização de salas, para que somente seja possível realizar o agendamento nas 4 salas disponíveis e caso já não exista agendamento para o horário solicitado.
+
+Para auxilio na utilização, este link contem uma pequena documentação gerada pelo Postman: https://documenter.getpostman.com/view/17110595/TzzEpEnj
