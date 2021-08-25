@@ -4,12 +4,3 @@ services:
     build: .
     ports: 
       - '19002:19002'
-    depends_on: 
-      - mongodb
-
-  mongodb:
-    image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: sistema
-      MONGO_INITDB_ROOT_PASSWORD: lucas322
