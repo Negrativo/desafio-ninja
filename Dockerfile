@@ -4,7 +4,7 @@ ENV HOME=/home/app
 
 RUN rm -rf /agenda
 
-COPY package.json npm-shrinkwrap.json yarn.lock $HOME/agenda/
+COPY package.json npm-shrinkwrap.json $HOME/agenda/
 
 WORKDIR $HOME/agenda
 
