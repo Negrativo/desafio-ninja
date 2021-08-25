@@ -1,5 +1,5 @@
-const periodoAgendamento = require('../comum/horarioComercial');
-const salasAgendamentos = require('../comum/salasAgendamentos');
+const periodoAgendamento = require('./horarioComercial');
+const salasAgendamentos = require('./salasAgendamentos');
 
 let validador = (data, hora) => {
 

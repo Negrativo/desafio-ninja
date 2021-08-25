@@ -13,6 +13,7 @@
   "devDependencies": {
     "jest": "^27.0.6",
     "nodemon": "^2.0.12",
+    "shrinkwarp": "^2.0.0",
     "tap-simple": "^0.3.1",
     "tap-spec": "^5.0.0",
     "tape": "^5.3.1"

@@ -1,5 +1,5 @@
-const agendaController = require('../src/controller/AgendaController');
-const validacao = require('../src/comum/validation');
+const agendaController = require('./controller/AgendaController');
+const validacao = require('./comum/validation');
 const express = require("express");
 
 const routes = express.Router();
