@@ -27,4 +27,4 @@ Há validações de dados utilizados, para que somente seja possível utilizar a
 Data -> DD/MM/AAA     e    Horário -> HH:MM
 Há também validação sobre utilização de salas, para que somente seja possível realizar o agendamento nas 4 salas disponíveis e caso já não exista agendamento para o horário solicitado.
 
-Para auxilio na utilização, este link contem uma pequena documentação gerada pelo Postman: [Documentação]("https://documenter.getpostman.com/view/17110595/TzzEpEnj")
+Para auxilio na utilização, este link contem uma pequena documentação gerada pelo Postman: https://documenter.getpostman.com/view/17110595/TzzEpEnj
