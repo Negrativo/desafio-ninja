@@ -12,4 +12,6 @@ RUN npm install --silent --progess=false
 
 COPY . $HOME/agenda
 
+EXPOSE 19002
+
 CMD ["npm", "start"]
